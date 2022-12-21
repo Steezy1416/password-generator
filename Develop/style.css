@@ -118,6 +118,36 @@ button[disabled] {
   overflow: hidden;
 }
 
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  border-radius: 25px;
+  width: 50%;
+  padding: 15px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+label {
+  padding: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;

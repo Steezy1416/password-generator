@@ -1,8 +1,15 @@
-// Assignment code here
+let modal = document.querySelector(".modal")
+let card = document.querySelector(".card")
 
+const openModal = () => {
+  card.classList.add("hide")
+  modal.classList.remove("hide")
+}
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+const closeModal = () => {
+  modal.classList.add("hide")
+  card.classList.remove("hide")
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -13,5 +20,3 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
