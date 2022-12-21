@@ -30,7 +30,7 @@
       </div>
 
       <div class="modal hide">
-        <form>
+        <form class="passForm" onsubmit="handleForm(event)">
           <label for="passLength">
             Password character length
             <input type="number" name="passLength" id="number" minlength="8" maxlength="128" placeholder="8 - 128 characters">
