@@ -20,13 +20,40 @@ const handleForm = event => {
   const numbers = form[0][3].checked
   const specialCharacters = form[0][4].checked
 
+  let formData = [
+    {name: "uppercase",
+     value: uppercase,
+     characters:"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    },
+    {name: "lowercase",
+     value: lowercase,
+     characters: "abcdefghijklmnopqrstuvwxyz"
+    },
+    {name: "numbers",
+     value: numbers,
+     characters: "0123456789"
+    },
+    {name: "specialCharacters",
+     value: specialCharacters,
+     characters: "!@#$%^&*()_+-=?/<>.,}{|"
+    }
+  ]
+  
+  formData = formData.filter(element => element.value === true)
+
   if(passLength < 8 || passLength > 128) {
     alert("Password Length must be between 8 - 128 characters")
+    return
   }
 
-  if(uppercase, lowercase, numbers, specialCharacters === false){
+  if(formData.length === 0){
     alert("Please check one of the checkboxes to continue")
+    return
   }
+
+  formData.push({name: "passLength", value: passLength})
+
+  writePassword(formData)
 
 }
 
