@@ -140,6 +140,10 @@ form {
 
 label {
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .hide {
@@ -166,12 +170,5 @@ label {
   }
   .modal {
     width: 100%;
-  }
-
-  label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
   }
 }
