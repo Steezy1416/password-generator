@@ -21,46 +21,78 @@ const handleForm = event => {
   const specialCharacters = form[0][4].checked
 
   let formData = [
-    {name: "uppercase",
-     value: uppercase,
-     characters:"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    {
+      name: "uppercase",
+      value: uppercase,
+      characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     },
-    {name: "lowercase",
-     value: lowercase,
-     characters: "abcdefghijklmnopqrstuvwxyz"
+    {
+      name: "lowercase",
+      value: lowercase,
+      characters: "abcdefghijklmnopqrstuvwxyz"
     },
-    {name: "numbers",
-     value: numbers,
-     characters: "0123456789"
+    {
+      name: "numbers",
+      value: numbers,
+      characters: "0123456789"
     },
-    {name: "specialCharacters",
-     value: specialCharacters,
-     characters: "!@#$%^&*()_+-=?/<>.,}{|"
+    {
+      name: "specialCharacters",
+      value: specialCharacters,
+      characters: "!@#$%^&*()_+-=?/<>.,}{|"
     }
   ]
-  
+
   formData = formData.filter(element => element.value === true)
 
-  if(passLength < 8 || passLength > 128) {
+  if (passLength < 8 || passLength > 128) {
     alert("Password Length must be between 8 - 128 characters")
     return
   }
 
-  if(formData.length === 0){
+  if (formData.length === 0) {
     alert("Please check one of the checkboxes to continue")
     return
   }
 
-  formData.push({name: "passLength", value: passLength})
-
-  writePassword(formData)
+  writePassword(formData, passLength)
 
 }
 
-const writePassword = formData => {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+const writePassword = (formData, passLength) => {
 
-  passwordText.value = password;
+  let password = ''
+
+  const generatePassword = () => {
+    if (password.length !== parseInt(passLength)) {
+      formData.forEach(element => {
+        if (password.length === parseInt(passLength)) {
+          return
+        }
+        const letterIndex = Math.floor(Math.random() * element.characters.length) + 0
+        password += element.characters[letterIndex]
+      
+      });
+    }
+    else {
+      return
+    }
+  }
+
+  while(password.length < parseInt(passLength)){
+    generatePassword()
+  }
+
+  console.log(password, password.length)
+
+
+  // for(let i = 0; i < passLength; i ++){
+
+  // }
+
+  // var password = generatePassword();
+  // var passwordText = document.querySelector("#password");
+
+  // passwordText.value = password;
 }
 
