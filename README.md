@@ -38,5 +38,5 @@ This application is meant to help users create randomized passwords so they may 
 
 ## Where can i access this application?
 
-To access this application you can go to [generate-a-password]()
+To access this application you can go to [generate-a-password](https://steezy1416.github.io/password-generator/)
 
